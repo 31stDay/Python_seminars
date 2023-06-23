@@ -10,3 +10,12 @@
 Input: 2016
 Output: YES
 """
+year = int(input('Введите год: '))
+var1 = year % 100
+var2 = year % 4
+var3 = year % 400
+
+if (var2 == 0 and var1 != 0) or var3 == 0:
+    print('YES')
+else:
+    print('NO')
