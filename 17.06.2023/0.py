@@ -45,3 +45,42 @@ for number in range(1, 101):
         if number % 3 == 0:
             summa += number
         print(summa)
+
+
+
+##############################
+for elem in my_list:
+    print(elem)
+####################
+    for i in range(4):
+print(my_list[i])
+
+#########################
+
+maximum = 0
+for i in range(4):
+    if my_list[i] > maximum:
+        maximum = my_list[i]
+print(maximum)
+
+#######################
+print(max(my_list))
+###########################
+my_list = []
+for i in range(10):
+    my
+
+    ##############
+import time
+start = time.time()
+
+finish = time()
+print(finish - start)
+
+##########################
+
+my_set = {1, 5, 3, 7}
+
+my_list = set(my_list)
+
+# set function creates множество. Еще она конвертирует список во множество
