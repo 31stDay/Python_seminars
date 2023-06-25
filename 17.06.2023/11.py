@@ -12,8 +12,8 @@ def task11():
         "Задача №11. Решение в группах Дано натуральное число A > 1. Определите, каким по счету числом Фибоначчи оно является, то есть выведите такое число n, что φ(n)=A. Если А не является числом Фибоначчи, выведите число -1."
     )
 fibonachi_number = int(input("Введите число из последовательности фибоначи "))
-    positiv_check = bool(fibonachi_number > 0)
-    if positiv_check:
+positiv_check = bool(fibonachi_number > 0)
+if positiv_check:
         first_number = 1
         second_number = 1
         curent_number = first_number + second_number

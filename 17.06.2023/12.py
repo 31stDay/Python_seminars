@@ -5,3 +5,13 @@
 Для этого Петя делает две подсказки. Он называет сумму 
 этих чисел S и их произведение P. Помогите Кате отгадать задуманные Петей числа.
 """
+
+# s = int(input('Enter the sum of the numbers: '))
+# p = int(input('Enter the product of the numbers: '))
+
+x = int(input())
+y = int(input())
+for i in range(x):
+    for j in range(y):
+        if x == i + j and y == i * j:
+            print(i, j)
