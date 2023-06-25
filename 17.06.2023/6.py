@@ -9,15 +9,22 @@
 385916 -> yes
 123456 -> no
 """
+first_triple = 0
+second_triple = 0
+ticket_number = int(input('Enter 6 digit ticket number: '))
+t_ticket_number = ticket_number
+if (ticket_number > 99000) and (ticket_number < 1000000):
+    while (t_ticket_number > 0):
+        while (t_ticket_number > 999):
+            second_triple = second_triple + t_ticket_number % 10
+            t_ticket_number = t_ticket_number // 10
+        first_triple = first_triple + t_ticket_number % 10
+        t_ticket_number = t_ticket_number // 10
+    if (first_triple == second_triple):
+        print('Yes')
+    else:
+        print('No')
+else:
+    print('You\'ve enter the wrong number!')
 
-#n = 234
-#a1 = n % 10
-#a2 = (n % 100) // 10
-#a3 = 
-#print(a1 + a2 + a3)
 
-sum = 0
-while n > 0:
-    ost = n % 10
-    n =  n// 10 #23
-    sum += ost
