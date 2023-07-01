@@ -84,3 +84,42 @@ my_set = {1, 5, 3, 7}
 my_list = set(my_list)
 
 # set function creates множество. Еще она конвертирует список во множество
+
+################
+#Functions
+
+def my_function():
+    pass
+
+my_function()
+
+
+massiv = vvod()
+answer = solve()
+vivod() 
+
+
+def vvod():
+    pass
+
+def vivod():
+    pass
+
+def solve():
+    pass
+
+massiv = vvod()
+answer = solve()
+vivod() 
+answer2 = solve()
+
+
+####################
+
+def kvadrat():
+    pass
+
+n = int(input())
+print
+
+
