@@ -15,21 +15,21 @@ string = input('Enter grades separated by a space: ')
 lst = [int(i) for i in string.split()]
 
 def swap_grades(list01):
-
-    maxim = 10000
-    minim = 0
-
+    maxim = list01[0]
+    minim = list01[0]
     for i in range(1, n):
         if(list01[i] > maxim):
+            maxim = list01[i]
             i_maxim = i
         else:
             if(list01[i] < minim):
-                i_minim = i
-    temp = list01[i_maxim]
-    list01[i_maxim] =  list01[i_minim]
-    list01[i_minim] = temp
+                minim = list01[i]
 
-swap_grades(lst)
+    #list01[i_maxim] =  list01[i_minim]
+    list01[i_maxim] = minim
+    return list01 
+    
+print(swap_grades(lst))
 
 """
     arr = [1, 3, 3, 3, 4]
