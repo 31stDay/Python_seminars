@@ -10,9 +10,6 @@ N целых чисел Ai. Последняя строка содержит ч�
     -> 1
 """
 
-a = int(input('Enter the number of elements: '))
-x = int(input('Enter the number you are looking for: '))
-
 def create_list(number_of_elements):
     import random
     lst01 = [random.randint(1, 10) for i in range(number_of_elements)]
@@ -25,14 +22,13 @@ def how_many_times_number_occur(lst02, number):
             counter += 1
     return counter
 
+a = int(input('Enter the number of elements: '))
+x = int(input('Enter the number you are looking for: '))
+
 lst = create_list(a)
 print(lst)
 print(f'Plese be informed that your number occur in the list {how_many_times_number_occur(lst, x)} times')
 
 
-# rand_list=[]
-# n=10
-# for i in range(n):
-#     rand_list.append(random.randint(3,9))
-# print(rand_list)
+
 
