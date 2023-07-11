@@ -9,11 +9,6 @@ Input: 5 -> 1 3 3 3 4
 Output: 1 3 3 3 1
 """
 
-
-n = int(input('Enter number of grades: '))
-string = input('Enter grades separated by a space: ')
-lst = [int(i) for i in string.split()]
-
 def swap_grades(list01):
     maxim = list01[0]
     minim = list01[0]
@@ -28,6 +23,11 @@ def swap_grades(list01):
     #list01[i_maxim] =  list01[i_minim]
     list01[i_maxim] = minim
     return list01 
+    
+
+n = int(input('Enter number of grades: '))
+string = input('Enter grades separated by a space: ')
+lst = [int(i) for i in string.split()]
     
 print(swap_grades(lst))
 
