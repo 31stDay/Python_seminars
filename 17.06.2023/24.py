@@ -13,43 +13,27 @@
 находясь перед некоторым кустом заданной во входном файле грядки.
 """
 
+from random import randint
 
+def fill_bushes(number_of_bush):
+    bush = [randint(1, 10) for i in range(number_of_bush)]
+    return bush
+
+
+def find_max_berries(bush):
+    max_berries = 0
+    max_i = 0
+    for i in range(len(bush)):
+        if bush[i] + bush[i - 1] + bush[(i + 1)% len(bush)] > max_berries:
+            max_i = i + 1
+            max_berries = bush[i] + bush[i - 1] + bush[(i + 1) % len(bush)]
+    return max_i, max_berries
+    
+       
 number_of_bushes = int(input('Please enter the total amount of bushes: '))
 
-def fill_bushes(n):
-    import random
-    bushes01 = {}
-    for key in range(n):
-        bushes01[key] = int(random.randint(10, 90))
-    return bushes01
-
-def find_max_berries(bushes02):
-    for key in bushes02:
-        berries_from_three_bushes = bushes02[key] + bushes02[key + 1] + bushes02[key - 1]
-       
-
 bushes = fill_bushes(number_of_bushes)
-print(f'{bushes}')
-
-
-####
-for i in range(number_of_bushes):
-        summ_yield = sum([yield_list[i] + yield_list[i - 1] + yield_list[(i + 1) % number_of_bushes]])
-        if summ_yield > max_summ_yield:
-            max_summ_yield = summ_yield
-######################
-quantity_bush = int(input("Введите кол-во кустов на грядке:\n"))
-list_1 = [randint(1, 15) for i in range(quantity_bush)]
-print(f"Кол-во ягод на каждом кусте {list_1}")
-count = 0
-max_quantity_berries = 0
-for i in range(-1, quantity_bush - 1):
-    count = list_1[i - 1] + list_1[i] + list_1[i + 1]
-    print(count)
-    if max_quantity_berries < count:
-        max_quantity_berries = count
-    count = 0
-print(f"Максимальное число ягод = {max_quantity_berries}")
-############################
+print(bushes)
+print(*find_max_berries(bushes))
 
 
