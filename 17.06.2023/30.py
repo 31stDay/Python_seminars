@@ -10,4 +10,4 @@ number_of_elements = int(input('Enter the number of elements: '))
 step = int(input('Enter the difference: '))
 
 list01 = [first_element + i * step for i in range(number_of_elements)]
-print(list01)
+print(*list01, sep=' ')
