@@ -16,28 +16,8 @@
 не должна быть линейной
 
 """
-
-def read_file():
-    with open('phone_book.txt', 'r', encoding = 'utf-8') as f:
-        for string in f:
-            print(string)
-
-def write_file():
-    with open('phone_book.txt', 'r', encoding = 'utf-8') as f:
-        surname = input('Введите фамилию')
-        name = input('Введите имя')
-        p_surname = input('Введите отчество')
-        phone = input('Введите телефон')
-
-        entry = surname + ';' + name + ';' + p_surname + ';' + phone
-        f.writelines(entry)
-
-
-
-
-
-def search_for_entry():
-    pass
+# if __name__ == "__main__":
+#     menu()  
 
 def menu():
     flag = True
@@ -53,9 +33,35 @@ def menu():
             flag = False   
         else:
             print('Введите корректное значение')
-    
 
-menu()
+def read_file():
+    with open('phone_book.csv', 'r', encoding = 'utf-8') as f:
+        for string in f:
+            print(*string.strip().split(";"))
+
+def write_file():
+    with open('phone_book.csv', 'a', encoding = 'utf-8') as f:
+        print('Введите следующие данные: ')
+        surname = input('Фамилия: ')
+        name = input('Имя: ')
+        p_surname = input('Отчество: ')
+        phone = input('Телефон: ')
+
+        new_entry = surname + ';' + name + ';' + p_surname + ';' + phone
+        f.writelines(new_entry)
+        print('Новая запись создана.')
+
+def search_for_entry():
+    with open('phone_book.csv', 'r', encoding= 'utf-8') as f:
+        search_word = input('Введите фамилию, имя, отчество или телефон: ')
+        for string in f:
+            for word in string:
+                if (word == search_word):
+                    print(*string.strip().split(";"))
+
+
+ 
+menu()    
 
 
 # Создать телефонный справочник с
@@ -65,30 +71,7 @@ menu()
 # в файле.
 
 
-def read_file():
-    with open("phonebook.txt", "r", encoding="utf - 8") as f:
-        for string in f:
-            print(*string.strip().split(";"))
 
 
-def write_file():
-    with open("phonebook.txt", "a", encoding="utf - 8") as f:
-        new_phone = input("Введите новую запись ").replace(" ", ";") + "\n"
-        f.write(new_phone)
 
 
-def menu():
-    print(
-        "Нажмите 1 если хотите посмотреть справочник, Нажмите 2 если хотете внести запись или 3 что бы выйти из меню"
-    )
-    task_number = int(input("Укажите порядковый номер задачи, которую будем смотреть "))
-    if task_number == 1:
-        read_file()
-    elif task_number == 2:
-        write_file()
-
-    menu()
-
-
-if __name__ == "__main__":
-    menu()
