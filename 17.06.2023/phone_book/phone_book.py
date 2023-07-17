@@ -16,52 +16,60 @@
 не должна быть линейной
 
 """
-# if __name__ == "__main__":
-#     menu()  
+import csv
 
-def menu():
-    flag = True
-    while flag:
-        n = int(input('1 - вывод из справочника, 2 - запись в справочник, 3 - поиск, 0 - выход\n'))
-        if n == 1:
-            read_file()
-        elif n == 2:
-            write_file()
-        elif n == 3:
-            search_for_entry() 
-        elif n == 0:
-            flag = False   
-        else:
-            print('Введите корректное значение')
+def print_file():
+    with open('phone_book.csv', 'r', encoding='utf-8') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        for row in csv_reader:
+            print(row)
 
-def read_file():
-    with open('phone_book.csv', 'r', encoding = 'utf-8') as f:
-        for string in f:
-            print(*string.strip().split(";"))
 
 def write_file():
-    with open('phone_book.csv', 'a', encoding = 'utf-8') as f:
+    with open('phone_book.csv', 'a+', encoding='utf-8') as csv_file:
+        csv_writer = csv.writer(csv_file)
         print('Введите следующие данные: ')
         surname = input('Фамилия: ')
         name = input('Имя: ')
         p_surname = input('Отчество: ')
         phone = input('Телефон: ')
-
         new_entry = surname + ';' + name + ';' + p_surname + ';' + phone
-        f.writelines(new_entry)
+        csv_file.write(new_entry)
+        csv_file.write("\n")
         print('Новая запись создана.')
 
+
 def search_for_entry():
-    with open('phone_book.csv', 'r', encoding= 'utf-8') as f:
-        search_word = input('Введите фамилию, имя, отчество или телефон: ')
-        for string in f:
-            for word in string:
-                if (word == search_word):
-                    print(*string.strip().split(";"))
+    search_word = input('Введите фамилию, имя, отчество или телефон: ')
+    with open('phone_book.csv', 'w', encoding='utf-8') as csv_file:
+        csv_reader = csv.reader(csv_file)
+        for row in csv_reader:
+            for field in row:
+                if(search_word == field):
+                    print(row)
+            else:
+                print('Строки, удовлетворяющие условиям поиска, не найдены')
 
 
- 
-menu()    
+def main():
+    flag = True
+    while flag:
+        n = int(input(
+            '1 - вывод из справочника, 2 - запись в справочник, 3 - поиск, 0 - выход\n'))
+        if n == 1:
+            print_file()
+        elif n == 2:
+            write_file()
+        elif n == 3:
+            search_for_entry()
+        elif n == 0:
+            flag = False
+        else:
+            print('Введено некорректное значение')
+
+
+if __name__ == '__main__':
+    main()
 
 
 # Создать телефонный справочник с
@@ -69,9 +77,3 @@ menu()
 # формате .txt. Фамилия, имя, отчество, номер
 # телефона - данные, которые должны находиться
 # в файле.
-
-
-
-
-
-
